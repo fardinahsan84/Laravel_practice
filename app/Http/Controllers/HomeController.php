@@ -33,7 +33,16 @@ class HomeController extends Controller
 
     	$users = $this->getStudentList();
 
-
+    	//find one student by ID from array
+      for ($i=0; $i < count($users) ; $i++) {
+        // code...
+        if($users[$i]['id']==$id){
+          $user = $users[$i];
+          return view('home.edit')->with('user', $user);
+        }
+        else{
+          return view('home.index')->with('users', $users);
+        }
       }
       //session(put,slash,forget)
 
