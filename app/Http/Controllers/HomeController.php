@@ -61,7 +61,10 @@ class HomeController extends Controller
     for ($i=0; $i < count($users) ; $i++) {
       // code...
       if($users[$i]['id']==$id){
-        $user = $users[$i];
+        //$user = $users[$i];
+        $users[$i]=$newUser;
+        //print_r($newUser);
+        //print_r($users);
         return view('home.index')->with('users', $users);
       }
       else{
