@@ -41,7 +41,7 @@ class HomeController extends Controller
           return view('home.edit')->with('user', $user);
         }
         else{
-          return view('home.index')->with('users', $users);
+          continue;
         }
       }
       //session(put,slash,forget)
@@ -76,12 +76,25 @@ class HomeController extends Controller
 
     }
 
+
+
+
     function delete($id){
 
     	$users = $this->getStudentList();
     	//show comfirm view
+      for ($i=0; $i < count($users) ; $i++) {
+        // code...
+        if($users[$i]['id']==$id){
+          $user = $users[$i];
+          return view('home.delete')->with('user', $user);
+        }
+        else{
+          continue;
+        }
+      }
 
-    	return view('home.delete')->with('user', $user);
+    	//return view('home.delete')->with('user', $user);
 
     }
 
@@ -89,8 +102,19 @@ class HomeController extends Controller
 
     	$users = $this->getStudentList();
     	//find student by id & delete
-    	//updated list
-
+            for ($i=0; $i < count($users) ; $i++) {
+              // code...
+              if($users[$i]['id']==$id){
+                unset($users[$i]);
+                //print_r($users);
+                break;
+                //return view('home.index')->with('users', $user);
+              }
+              else{
+                continue;
+              }
+            }
+            //print_r($users);
     	return view('home.index')->with('users', $users);
     }
 
