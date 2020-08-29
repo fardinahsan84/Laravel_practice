@@ -8,6 +8,8 @@
 	<h1>Edit user page</h1>
 
 	<form method="post">
+		<input type="hidden" name="_token" value="{{csrf_token()}}">
+
 		<table>
 			<tr>
 				<td>Name</td>

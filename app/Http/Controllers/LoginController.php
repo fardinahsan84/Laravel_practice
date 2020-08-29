@@ -12,13 +12,15 @@ class LoginController extends Controller
     	return view('login.index');
     }
 
-    function validation(Request $request){
+    function verify(Request $request){
 
     	if($request->username == $request->password){
     		//session
+        $request->session()->put('username',$request->username);
     		return redirect('/home');
     	}
       else{
+        $request->session()->flash('msg','Invalid username/password');
         return redirect('/login');
       }
     }

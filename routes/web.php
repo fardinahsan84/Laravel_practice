@@ -18,12 +18,16 @@ Route::get('/', function () {
 });
 
 Route::get('/login', 'LoginController@index');
-Route::post('/login','LoginController@validation');
+Route::post('/login','LoginController@verify');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/logout', 'LogoutController@index');
 
-Route::get('/home/edit/{id}', 'HomeController@edit');
-Route::post('/home/edit/{id}', 'HomeController@update');
+Route::middleware(['ses'])->group(function(){
+      Route::get('/home', 'HomeController@index');
 
-Route::get('/home/delete/{id}', 'HomeController@delete');
-Route::post('/home/delete/{id}', 'HomeController@destroy');
+      Route::get('/home/edit/{id}', 'HomeController@edit');
+      Route::post('/home/edit/{id}', 'HomeController@update');
+
+      Route::get('/home/delete/{id}', 'HomeController@delete');
+      Route::post('/home/delete/{id}', 'HomeController@destroy');
+});

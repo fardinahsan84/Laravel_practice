@@ -4,6 +4,10 @@
 	<title>Home Page</title>
 </head>
 <body>
+<form method ="post">
+	<!-- @csrf -->
+	<!-- {{csrf_field()}} -->
+	<input type="hidden" name="_token" value="{{csrf_token()}}">
 
 	<h1>Welcome home!</h1>
 
@@ -33,7 +37,8 @@
 		</tr>
 	@endforeach
 	</table>
-
+<a href="/logout">Logout</a><br>
+</form>
 </body>
 </html>
 © 2020 GitHub, Inc.

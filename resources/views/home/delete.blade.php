@@ -5,6 +5,8 @@
 </head>
 <body>
     <form method="post">
+      <input type="hidden" name="_token" value="{{csrf_token()}}">
+
       <center>
         <fieldset>
             <table>
