@@ -65,14 +65,15 @@ class HomeController extends Controller
         $users[$i]=$newUser;
         //print_r($newUser);
         //print_r($users);
-        return view('home.index')->with('users', $users);
+        //return view('home.index')->with('users', $users);
+        break;
       }
       else{
-        return view('home.index');
+        continue;
       }
     }
 
-    	//return view('home.index')->with('users', $users);
+    	return view('home.index')->with('users', $users);
 
     }
 
