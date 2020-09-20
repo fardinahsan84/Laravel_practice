@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+@extends(Layout.layout)
 <head>
 	<title>login</title>
 </head>
